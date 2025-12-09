@@ -4,8 +4,6 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
- // Adjust if your setup is different
-
 export const AuthProvider = ({ children }) => {
     // Check local storage for initial state
     const [authState, setAuthState] = useState({
@@ -20,17 +18,24 @@ export const AuthProvider = ({ children }) => {
         setAuthState(prev => ({ ...prev, loading: true, error: null }));
         try {
             // Your adminLogin endpoint is POST /api/admin/valid
-            const response = await axios.post(`http://localhost:5001/api/admin/valid`, { email, password });
+            const response = await axios.post(`https://streamify-5.onrender.com/api/admin/valid`, { email, password });
             
-            const { token, role } = response.data;
+            // 🛑 CRITICAL CHANGE: Destructure token and the nested user object 🛑
+            const { token, user } = response.data; // Now expects { token, user: { role, email, ... } }
+            const userRole = user ? user.role : null;
+
+            if (!token || !userRole) {
+                 // Should not happen if backend is working, but safe check
+                 throw new Error("Login response missing token or user role.");
+            }
 
             // Save state and local storage
             localStorage.setItem('adminToken', token);
-            localStorage.setItem('adminRole', role);
+            localStorage.setItem('adminRole', userRole);
             
             setAuthState({ 
                 token, 
-                role, 
+                role: userRole, // Use the extracted role
                 isAuthenticated: true, 
                 loading: false, 
                 error: null 
