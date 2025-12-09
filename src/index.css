@@ -1,0 +1,19 @@
+/* Color Palette */
+:root {
+  --background-color: #1a1a2e; /* Deep Indigo/Navy */
+  --card-background: #2c2c45; /* Dark Purple-Gray */
+  --text-color-primary: #e0e0f0; /* Soft White */
+  --accent-color-primary: #00bcd4; /* Cyan/Teal (for links/focus) */
+  --accent-color-secondary: #ff7f50; /* Coral (for errors/alerts) */
+  --border-color: #4a4a6b;
+  --delete-color: #e53935; /* Red */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}

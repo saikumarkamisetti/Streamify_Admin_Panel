@@ -1,0 +1,101 @@
+/* Color Variables (Ensure these are accessible) */
+:root {
+  --background-color: #1a1a2e; /* Deep Indigo/Navy */
+  --card-background: #2c2c45; /* Dark Purple-Gray */
+  --text-color-primary: #e0e0f0;
+  --accent-color-primary: #00bcd4; /* Cyan/Teal */
+  --accent-color-secondary: #ff7f50; /* Coral */
+  --border-color: #4a4a6b;
+}
+
+/* --- Container and Card Layout --- */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+}
+
+.login-card {
+  background-color: var(--card-background);
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Pronounced shadow */
+  width: 100%;
+  max-width: 380px;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.login-card h2 {
+  color: var(--accent-color-primary);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+/* --- Form Fields --- */
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-color-primary);
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background-color: #383856; /* Slightly lighter input background */
+  color: var(--text-color-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: var(--accent-color-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 188, 212, 0.4); /* Neon focus glow */
+}
+
+/* --- Submit Button --- */
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--accent-color-secondary); /* Coral for main action */
+  color: var(--background-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.submit-button:hover {
+  background-color: #d16b43; /* Darker coral on hover */
+  transform: translateY(-1px);
+}
+
+.error-message {
+  color: var(--delete-color); /* Red for errors */
+  background-color: #383856;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 20px;
+  text-align: center;
+}

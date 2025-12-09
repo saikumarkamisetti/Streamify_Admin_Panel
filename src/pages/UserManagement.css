@@ -1,0 +1,101 @@
+/* UserManagement.css */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  margin-right: 10px;
+}
+.dashboard-container {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-container h2 {
+  color: var(--accent-color-primary);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  font-weight: 300; /* Light font weight for modern feel */
+}
+
+/* --- Table Styling (Advanced Grid Look) --- */
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse; /* Essential for clean lines */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); /* Subtle lift */
+  background-color: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden; /* Ensures borders/shadows are contained */
+}
+
+.user-table thead {
+  background-color: var(--background-color);
+  color: var(--accent-color-primary);
+}
+
+.user-table th {
+  padding: 15px 10px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.user-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.3s ease;
+}
+
+.user-table tbody tr:hover {
+  background-color: #383856; /* Slightly lighter on hover */
+}
+
+.user-table td {
+  padding: 12px 10px;
+}
+
+/* Highlight the Admin role */
+.user-table td strong {
+  color: var(--accent-color-secondary);
+}
+
+/* --- Button Styling (Neon/Accent) --- */
+
+.action-button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+/* Details Button */
+.details-button {
+  background-color: var(--accent-color-primary);
+  color: var(--background-color);
+}
+.details-button:hover {
+  background-color: #00a0b2;
+  transform: translateY(-1px);
+}
+
+/* Delete Button */
+.delete-button {
+  background-color: var(--delete-color);
+  color: var(--text-color-primary);
+}
+.delete-button:hover:not(:disabled) {
+  background-color: #c72c2c;
+  transform: translateY(-1px);
+}
+.delete-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
