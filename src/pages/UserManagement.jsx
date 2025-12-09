@@ -20,7 +20,7 @@ const UserManagement = () => {
     };
 
     const fetchUsers = useCallback(async () => {
-        setLoading(true);
+        
         setError(null);
         try {
             const response = await axios.get(`https://streamify-5.onrender.com/api/admin/users`, {
@@ -114,7 +114,7 @@ const UserManagement = () => {
         });
     };
 
-    if (loading) return (
+    if (loading){ return (
         // 🛑 Loader UI 🛑
         <div className="dashboard-container" style={{ textAlign: 'center', padding: '100px' }}>
             <Loader2 className="spinner" size={48} color="#00bcd4" />
@@ -123,8 +123,8 @@ const UserManagement = () => {
     );
 
     if (error) return <div style={{ color: 'red', padding: '20px', border: '1px solid red' }}>Error: {error}</div>;
-
-
+}
+    else{
     return (
     <div className="dashboard-container">
         {/* 🛑 TOASTER COMPONENT */}
@@ -190,6 +190,7 @@ const UserManagement = () => {
         )}
     </div>
     );
+}
 };
 
 export default UserManagement;
