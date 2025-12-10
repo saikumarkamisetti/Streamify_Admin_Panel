@@ -20,10 +20,10 @@ const UserManagement = () => {
     };
 
     const fetchUsers = useCallback(async () => {
-        
+       
         setError(null);
         try {
-            const response = await axios.get(`https://streamify-5.onrender.com/api/admin/users`, {
+            const response = await axios.get(`http://localhost:5001/api/admin/users`, {
                 headers: {
                     Authorization: `Bearer ${token}` 
                 },
@@ -80,7 +80,7 @@ const UserManagement = () => {
                         
                         try {
                             // Perform the delete action
-                            await axios.delete(`https://streamify-5.onrender.com/api/admin/users/${userId}`, {
+                            await axios.delete(`http://localhost:5001/api/admin/users/${userId}`, {
                                 headers: { Authorization: `Bearer ${token}` },
                                 withCredentials: true 
                             });
